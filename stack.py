@@ -56,7 +56,12 @@ class Stack:
                     else:
                         return "Сбалансированно"
             if self.peek() in inversion_dict:
+                last_el = self.pop()
                 counter_dict[inversion_dict[self.pop()]] -= 1
+
+                if counter_dict[inversion_dict[self.pop()]] < 0:
+                    return "Несбалансированно"
+
             else:
                 counter_dict[self.pop()] += 1
 
